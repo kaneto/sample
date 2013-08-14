@@ -1,14 +1,10 @@
 <?php
 
-// レシートデータ
 $receipt_data = $_POST['receipt-data'];
 
-
-// 整形
 $post_data = json_encode(array("receipt-data" => base64_encode($receipt_data)));
 
 
-// 課金サーバ
 $url = "https://sandbox.itunes.apple.com/verifyReceipt";
 
 $ch = curl_init();
@@ -23,7 +19,6 @@ $response = curl_exec($ch);
 $response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
-// 通信結果
 var_dump($response);
 var_dump($response_code);
 
