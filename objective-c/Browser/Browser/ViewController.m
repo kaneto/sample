@@ -26,4 +26,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)showWebView:(UITextField *)sender {
+
+    NSURL *url = [NSURL URLWithString:sender.text];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [self.webView loadRequest:request];
+    
+}
 @end
